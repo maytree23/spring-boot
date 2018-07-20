@@ -1,0 +1,51 @@
+# user defined properties(user-defined-properties)
+udp:
+  title: 标题
+  description: 描述
+
+server:
+  port: 8090
+  tomcat.uri-encoding: UTF-8
+  connection-timeout: 5s
+  servlet:
+    session:
+      timeout: 300s
+
+# log
+logging:
+  config: classpath:log4j2-spring.xml
+
+# spring
+spring:
+  # mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/nicolastree?useSSL=false
+    username: nicolastree
+    password: qqkfq0513
+    driver-class-name: com.mysql.jdbc.Driver
+  # jpa
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl.auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+  # redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: qqkfq0513
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 5000ms
+
+# mybatis
+mybatis:
+  type-aliases-package: com.example.demo.domain.mapper
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
